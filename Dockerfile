@@ -10,6 +10,6 @@ RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSI
     && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
 COPY whitelist.txt /app/
-COPY config.ini.php.tmpl /app/
+COPY config.ini.php.tmpl /tmp/
 
-CMD ["dockerize", "-template", "/app/config.ini.php.tmpl:/app/config.ini.php", "apache2-foreground"]
+ENTRYPOINT ["dockerize", "-template", "/tmp/config.ini.php.tmpl:/app/config.ini.php", "/app/docker-entrypoint.sh"]
