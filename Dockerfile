@@ -1,4 +1,4 @@
-FROM rssbridge/rss-bridge:2020-02-26
+FROM rssbridge/rss-bridge:latest
 
 ENV APACHE_DOCUMENT_ROOT=/app
 
